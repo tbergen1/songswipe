@@ -1,0 +1,26 @@
+{
+  "name": "songswipe",
+  "version": "1.0.0",
+  "description": "A song swipe gallery",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tbergen1/songswipe.git"
+  },
+  "keywords": [
+    "song",
+    "swipe"
+  ],
+  "author": "Tom Bergen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tbergen1/songswipe/issues"
+  },
+  "homepage": "https://github.com/tbergen1/songswipe#readme",
+  "dependencies": {
+    "bower": "^1.6.9"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "songswipe",
+  "version": "0.0.0",
+  "homepage": "https://github.com/tbergen1/songswipe",
+  "authors": [
+    "Tom Bergen"
+  ],
+  "description": "A swipeable song gallery",
+  "main": "main.js",
+  "keywords": [
+    "song",
+    "swipe"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "fontawesome": "~4.5.0",
+    "slick-carousel": "~1.5.9",
+    "bigSlide": "~0.9.3"
+  }
+}
