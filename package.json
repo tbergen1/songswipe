@@ -21,6 +21,12 @@
   },
   "homepage": "https://github.com/tbergen1/songswipe#readme",
   "dependencies": {
-    "bower": "^1.6.9"
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.0.6",
+    "body-parser": "^1.14.1",
+    "bower": "^1.6.9",
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1"
   }
 }
