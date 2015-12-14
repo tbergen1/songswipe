@@ -1,32 +1,26 @@
 var util = require('./lib/utilities.js');
 var handler = require('./lib/request-handler.js');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var express = require('express');
+
 var app = express();
 
-
-var sessionCheck = function(req, res, next) {
-  if(req.session && req.session.user) {
-    next();
-  }
-  else {
-    res.redirect('/');
-  }
-}
-
-app.use(bodyParser());
+app.set('views', './views');
+app.set('view engine', 'jade');
+app.use(bodyParser.json());
 app.use(express.static(__dirname + './public'));
-app.use(cookieParser('23gGSg5HJS4vsg8bFDsd45437VGDD6vC'));
-app.use(session());
+app.use(session({
+  secret: '23gGSg5HJS4vsg8bFDsd45437VGDD6vC',
+  resave: false,
+  saveUninitialized: true,
+}));
 
-app.get('/', sessionCheck, );
+app.get('/', util.checkUser, handler.songViewRender);
+app.get('/songs', util.checkUser, handler.savedSongList);
 
-app.get('/login');
-app.post('/login');
+app.get('/login', handler.loginUserForm);
+app.post('/login', handler.loginUser);
 
-app.get('/signup');
-app.post('/signup');
-
-app.get('/songs');
+app.get('/signup', handler.signupUserForm);
+app.post('/signup', handler.signupUser);

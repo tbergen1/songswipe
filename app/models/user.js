@@ -18,7 +18,7 @@ user.methods.comparePassword = function(attemptedPassword, callback) {
 
 user.methods.hashPassword = function() {
   var cipher = promise.promisify(bcrypt.hash);
-  return cipher(this.password, null, null, ).bind(this)
+  return cipher(this.password, null, null).bind(this)
   .then(function(hash) {
     this.password = hash;
   });
@@ -26,6 +26,7 @@ user.methods.hashPassword = function() {
 
 user.pre('save', function(next) {
   this.hashPassword.then(function(hash) {
+    this.password = hash;
     next();
   });
 });
