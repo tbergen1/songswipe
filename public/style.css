@@ -15,9 +15,13 @@ h1 {
 #container {
   width  : 300px;
   height : 500px;
-  margin : 0 auto;
+  margin : auto;
   background-color: #708090;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /*transform: translateY(-50%);*/
 }
