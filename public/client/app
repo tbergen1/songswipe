@@ -1,0 +1,16 @@
+angular.module('swipeify', ['ui.router']).
+
+config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/");
+
+  $stateProvider
+    .state('state1', {
+      url: "/",
+      templateUrl: "client/auth/login.html" 
+    })
+    .state('state2', {
+      url: "/signup",
+      templateUrl: "client/auth/signup.html"
+    });
+})
+

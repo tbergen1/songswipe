@@ -6,21 +6,24 @@ var express = require('express');
 
 var app = express();
 
-app.set('views', './views');
-app.set('view engine', 'jade');
+// app.set('views', __dirname + '/views');
+// app.set('view engine', 'jade');
 app.use(bodyParser.json());
-app.use(express.static(__dirname + './public'));
+app.use(express.static(__dirname + '/public'));
+console.log(__dirname);
 app.use(session({
   secret: '23gGSg5HJS4vsg8bFDsd45437VGDD6vC',
   resave: false,
   saveUninitialized: true,
 }));
 
-app.get('/', util.checkUser, handler.songViewRender);
-app.get('/songs', util.checkUser, handler.savedSongList);
+// app.get('/', util.checkUser, handler.songViewRender);
+// app.get('/songs', util.checkUser, handler.savedSongList);
 
-app.get('/login', handler.loginUserForm);
-app.post('/login', handler.loginUser);
+// app.get('/login', handler.loginUserForm);
+// app.post('/login', handler.loginUser);
 
-app.get('/signup', handler.signupUserForm);
-app.post('/signup', handler.signupUser);
+// app.get('/signup', handler.signupUserForm);
+// app.post('/signup', handler.signupUser);
+
+module.exports = app;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="swipeify">
+  <head>
+    <meta/>
+    <title></title>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="/lib/slick-carousel/slick/slick.css">
+    <!-- Dependency Scripts -->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- <script type="text/javascript" src="client/app.js"></script> -->
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="lib/bigSlide/dist/bigSlide.js"></script>
+    <script type="text/javascript" src="lib/slick-carousel/slick/slick.js"></script>
+    angular.module('swipeify', ['ui.router'])
+
+      .config(function($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise("state1");
+
+        $stateProvider
+          .state('state1', {
+            url: "/",
+            templateUrl: "client/auth/login.html" 
+          })
+          .state('state2', {
+            url: "/signup",
+            templateUrl: "client/auth/signup.html"
+          });
+      });
+      </script>
+
+
+  </head>
+    <body>
+      <h1>Swipeify</h1>
+      <div ui-view></div>
+      <a ui-sref="state1">State 1</a>
+      <a ui-sref="state2">State 2</a>
+
+    </body>
+</html>
