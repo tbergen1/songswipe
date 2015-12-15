@@ -15,19 +15,40 @@
     <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="lib/bigSlide/dist/bigSlide.js"></script>
     <script type="text/javascript" src="lib/slick-carousel/slick/slick.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
+    <script>
+    $(document).ready(function() {
+SC.initialize({
+      client_id: '42a5cbfcd2625ac49a646bc4bb77c79b'
+    });
+    SC.get('/tracks', {limit: 200}).then(function(sound){
+      
+      console.log(sound);
+      // sound.play();
+
+     $('#player').attr('src', 'http://api.soundcloud.com/tracks/293/stream?client_id=42a5cbfcd2625ac49a646bc4bb77c79b');
+  
+    });
+  });
+    </script>
+    <script>
     angular.module('swipeify', ['ui.router'])
 
       .config(function($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("state1");
 
         $stateProvider
-          .state('state1', {
-            url: "/",
-            templateUrl: "client/auth/login.html" 
-          })
-          .state('state2', {
-            url: "/signup",
-            templateUrl: "client/auth/signup.html"
+          // .state('state1', {
+          //   url: "/",
+          //   templateUrl: "client/auth/login.html" 
+          // })
+          // .state('state2', {
+          //   url: "/signup",
+          //   templateUrl: "client/auth/signup.html"
+          // })
+          .state('state3', {
+            url: "/songview",
+            templateUrl: "client/song/songview.html"
           });
       });
       </script>
@@ -35,10 +56,13 @@
 
   </head>
     <body>
+    <div id="container">
       <h1>Swipeify</h1>
+      <audio id="player" src="" autoplay="true"></audio>
       <div ui-view></div>
-      <a ui-sref="state1">State 1</a>
-      <a ui-sref="state2">State 2</a>
-
+      <a ui-sref="state1"></a>
+      <a ui-sref="state2"></a>
+      <a ui-sref="state3"></a>
+      </div>
     </body>
 </html>
