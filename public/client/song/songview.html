@@ -1,9 +1,6 @@
 <div ng-controller="SongController">
-  <!--<i ng-click=" " id="next-product" class="fa fa-chevron-right link"></i>
-  <i ng-click=" " id="prev-product" class="fa fa-chevron-left link"></i> -->
-
-   <div id="slider-container" song-slide="{dots: false, arrows: true, draggable: 
-    true, slidesToShow:1, infinite:true}">
+  <div id="swipeify-slider-container">
+   <div id="slider-container" class="st-animate-bounce-in-up" song-slide="{draggable:true, infinite:true, arrows:false}">
 <!--<i id="next-product" class="fa fa-chevron-right link"></i>
     <i id="prev-product" class="fa fa-chevron-left link"></i>-->
 
@@ -14,6 +11,7 @@
         </li>
       </ul>
     </div>
+  </div>
   
   <audio id="player" src="{{data.source}}" autoplay="true"></audio>
 

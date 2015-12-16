@@ -10,7 +10,7 @@ var app = express();
 // app.set('view engine', 'jade');
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
-console.log(__dirname);
+
 app.use(session({
   secret: '23gGSg5HJS4vsg8bFDsd45437VGDD6vC',
   resave: false,
