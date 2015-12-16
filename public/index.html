@@ -4,38 +4,22 @@
     <meta/>
     <title></title>
 
-    <!-- Style Sheets -->
-    <link rel="stylesheet" type="text/css" href="/style.css"/>
-    <link rel="stylesheet" type="text/css" href="/lib/fontawesome/css/font-awesome.css"/>
-    <link rel="stylesheet" type="text/css" href="/lib/slick-carousel/slick/slick.css">
     <!-- Dependency Scripts -->
-    <script type="text/javascript" src="lib/angular/angular.js"></script>
-    <script type="text/javascript" src="lib/angular-ui-router/release/angular-ui-router.js"></script>
-    <!-- <script type="text/javascript" src="client/app.js"></script> -->
-    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="lib/bigSlide/dist/bigSlide.js"></script>
-    <script type="text/javascript" src="lib/slick-carousel/slick/slick.js"></script>
+    <script type="text/javascript" src="./lib/angular/angular.js"></script>
+    <script type="text/javascript" src="./lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="./client/directives/directives.js"></script>
+    <script type="text/javascript" src="./client/song/songview.js"></script>
+    <!-- <script type="text/javascript" src="client/app.js"></script>-->
+    <script type="text/javascript" src="./lib/jquery/dist/jquery.js"></script>
+    <script type="text/javascript" src="./lib/bigSlide/dist/bigSlide.js"></script>
+    <script type="text/javascript" src="./lib/slick-carousel/slick/slick.js"></script>
     <script src="https://connect.soundcloud.com/sdk/sdk-3.0.0.js"></script>
-    <script>
-    $(document).ready(function() {
-SC.initialize({
-      client_id: '42a5cbfcd2625ac49a646bc4bb77c79b'
-    });
-    SC.get('/tracks', {limit: 200}).then(function(sound){
-      
-      console.log(sound);
-      // sound.play();
 
-     $('#player').attr('src', 'http://api.soundcloud.com/tracks/293/stream?client_id=42a5cbfcd2625ac49a646bc4bb77c79b');
-  
-    });
-  });
-    </script>
     <script>
-    angular.module('swipeify', ['ui.router'])
+    angular.module('swipeify', ['ui.router', 'swipeify.songs', 'swipeify.directives'])
 
       .config(function($stateProvider, $urlRouterProvider) {
-        $urlRouterProvider.otherwise("state1");
+        $urlRouterProvider.otherwise("/songview");
 
         $stateProvider
           // .state('state1', {
@@ -56,13 +40,15 @@ SC.initialize({
 
   </head>
     <body>
-    <div id="container">
+    <div id="slider-container">
       <h1>Swipeify</h1>
-      <audio id="player" src="" autoplay="true"></audio>
+      <div id="songs-container" style="height: 195px;" class="st-animate-bounce-in-up"></div>
       <div ui-view></div>
-      <a ui-sref="state1"></a>
-      <a ui-sref="state2"></a>
-      <a ui-sref="state3"></a>
+
       </div>
     </body>
+    <!-- Style Sheets -->
+    <link rel="stylesheet" type="text/css" href="./style.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/fontawesome/css/font-awesome.css"/>
+    <link rel="stylesheet" type="text/css" href="./lib/slick-carousel/slick/slick.css">
 </html>

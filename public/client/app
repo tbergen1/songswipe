@@ -1,4 +1,4 @@
-angular.module('swipeify', ['ui.router']).
+angular.module('swipeify', ['ui.router', 'swipeify.directives', 'swipeify.songs']).
 
 config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise("/");

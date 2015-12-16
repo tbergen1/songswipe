@@ -1,1 +1,21 @@
-<h1>Song</h1>
+<div ng-controller="SongController">
+  <!--<i ng-click=" " id="next-product" class="fa fa-chevron-right link"></i>
+  <i ng-click=" " id="prev-product" class="fa fa-chevron-left link"></i> -->
+
+   <div id="slider-container" song-slide="{dots: false, arrows: true, draggable: 
+    true, slidesToShow:1, infinite:true}">
+<!--<i id="next-product" class="fa fa-chevron-right link"></i>
+    <i id="prev-product" class="fa fa-chevron-left link"></i>-->
+
+     <ul class="song" ng-repeat="slide in data.slides">
+        <li class="songs">
+          <img class="image" src="{{slide.artwork_url}}">
+          <p class="title"> {{slide.title}} </p>
+        </li>
+      </ul>
+    </div>
+  
+  <audio id="player" src="{{data.source}}" autoplay="true"></audio>
+
+</div>
+
